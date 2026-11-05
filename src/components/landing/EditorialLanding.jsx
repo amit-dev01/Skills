@@ -103,15 +103,15 @@ export function EditorialLanding({ onEnterApp, onSelectTab }) {
 
           {/* H1 Display Heading (Instrument Serif, 400 weight, 80px / mobile 48px, line-height 0.95, tight tracking) */}
           <h1
-            className="animate-fade-rise font-editorial text-white text-[48px] sm:text-[68px] lg:text-[80px] font-normal leading-[0.95] tracking-[-2.46px]"
+            className="animate-fade-rise font-editorial text-white text-[48px] sm:text-[68px] lg:text-[80px] font-normal leading-[0.95] tracking-[-2.46px] drop-shadow-md"
           >
             Your Network, <br />
-            <span className="italic text-slate-200">Your Opportunity.</span>
+            <span className="italic text-slate-100">Your Opportunity.</span>
           </h1>
 
           {/* Sub-header (Inter 18px, 400 weight, staggered delay 200ms) */}
           <p
-            className="animate-fade-rise delay-200 text-slate-300 text-[18px] font-normal leading-relaxed max-w-2xl"
+            className="animate-fade-rise delay-200 text-slate-200 text-[18px] font-normal leading-relaxed max-w-2xl drop-shadow-sm"
           >
             Bridging ambitious self-taught developers, fresh graduates, and non-traditional engineers with verified mentors, tech communities, and hiring partners.
           </p>
