@@ -11,7 +11,7 @@ export function EditorialLanding({ onEnterApp, onSelectTab }) {
       className="min-h-screen text-[#0f172a] font-body flex flex-col relative overflow-hidden"
       style={{ backgroundColor: "hsl(201, 100%, 13%)" }}
     >
-      {/* Background Cinematic Video with Editorial Overlay */}
+      {/* Background Cinematic Video with Crisp Visibility */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
         <video
           autoPlay
@@ -19,18 +19,18 @@ export function EditorialLanding({ onEnterApp, onSelectTab }) {
           muted
           playsInline
           onLoadedData={() => setVideoLoaded(true)}
-          className={`w-full h-full object-cover transition-opacity duration-1000 ${
-            videoLoaded ? "opacity-45" : "opacity-0"
+          className={`w-full h-full object-cover transition-opacity duration-700 ${
+            videoLoaded ? "opacity-85" : "opacity-0"
           }`}
           src="https://designerstephen.github.io/public-assets/videos/serene-art-hero.mp4"
         />
-        {/* Editorial gradient tint overlays */}
+        {/* Soft, non-blurry contrast overlay for readability */}
         <div
-          className="absolute inset-0 bg-gradient-to-b from-slate-950/80 via-slate-950/50 to-slate-950/95"
+          className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/40 to-black/20"
           aria-hidden="true"
         />
         <div
-          className="absolute inset-0 backdrop-blur-[2px]"
+          className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30"
           aria-hidden="true"
         />
       </div>
@@ -164,3 +164,4 @@ export function EditorialLanding({ onEnterApp, onSelectTab }) {
     </div>
   );
 }
+
