@@ -17,6 +17,8 @@ import { isSupabaseConfigured } from "@/lib/supabaseClient";
 
 export function Header() {
   const {
+    viewMode,
+    setViewMode,
     activeTab,
     searchQuery,
     setSearchQuery,
@@ -170,6 +172,16 @@ export function Header() {
             </>
           )}
         </div>
+
+        {/* Return to Editorial Landing Page */}
+        <button
+          onClick={() => setViewMode("landing")}
+          className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-black text-white hover:bg-slate-900 border border-white/20 text-xs font-medium transition-all hover:scale-105"
+          title="Return to Editorial Landing Page"
+        >
+          <Sparkles className="w-3.5 h-3.5 text-blue-400" />
+          <span>Editorial View</span>
+        </button>
 
         {/* Live System Status Pill */}
         <div className="hidden xl:flex items-center gap-2 px-2.5 py-1 rounded-full bg-slate-900/80 border border-slate-800/80 text-[11px] text-slate-400">

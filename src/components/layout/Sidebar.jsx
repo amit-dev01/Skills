@@ -20,6 +20,7 @@ import { cn } from "@/lib/utils";
 
 export function Sidebar() {
   const {
+    setViewMode,
     activeTab,
     setActiveTab,
     sidebarCollapsed,
@@ -184,6 +185,21 @@ export function Sidebar() {
             </button>
           );
         })}
+
+        {/* Editorial Landing Switcher */}
+        <div className="pt-2 mt-2 border-t border-slate-800/60">
+          <button
+            onClick={() => setViewMode("landing")}
+            className={cn(
+              "w-full flex items-center gap-3 px-3 py-2 rounded-xl text-xs font-medium text-slate-400 hover:text-white hover:bg-slate-800/60 transition-all group",
+              sidebarCollapsed && "justify-center px-0"
+            )}
+            title={sidebarCollapsed ? "Editorial Landing" : undefined}
+          >
+            <Sparkles className="w-4 h-4 text-amber-400 shrink-0 group-hover:scale-110 transition-transform" />
+            {!sidebarCollapsed && <span className="truncate">Editorial Showcase</span>}
+          </button>
+        </div>
       </div>
 
       {/* User Passport Mini Summary Footer */}

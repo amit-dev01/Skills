@@ -45,6 +45,7 @@ export const DEFAULT_SAVED_CONNECTIONS = [
 
 export function AppProvider({ children }) {
   // Navigation State
+  const [viewMode, setViewMode] = useState("landing"); // 'landing' | 'app'
   const [activeTab, setActiveTab] = useState("overview"); // 'overview', 'passport', 'recruiters', 'mentors', 'communities', 'connections', 'message-studio', 'settings'
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -312,6 +313,8 @@ export function AppProvider({ children }) {
   return (
     <AppContext.Provider
       value={{
+        viewMode,
+        setViewMode,
         activeTab,
         setActiveTab,
         sidebarCollapsed,

@@ -14,6 +14,7 @@ import { CommunityDiscovery } from "@/components/communities/CommunityDiscovery"
 import { ConnectionsManager } from "@/components/connections/ConnectionsManager";
 import { AIMessageStudio } from "@/components/message-studio/AIMessageStudio";
 import { SettingsView } from "@/components/settings/SettingsView";
+import { EditorialLanding } from "@/components/landing/EditorialLanding";
 
 function MainContent() {
   const { activeTab } = useApp();
@@ -32,24 +33,44 @@ function MainContent() {
   );
 }
 
+function AppShell() {
+  const { viewMode, setViewMode, setActiveTab } = useApp();
+
+  if (viewMode === "landing") {
+    return (
+      <EditorialLanding
+        onEnterApp={() => setViewMode("app")}
+        onSelectTab={(tab) => {
+          setActiveTab(tab);
+          setViewMode("app");
+        }}
+      />
+    );
+  }
+
+  return (
+    <div className="flex min-h-screen bg-[#070b14] bg-gradient-navy text-slate-100">
+      {/* Desktop Left Sidebar */}
+      <Sidebar />
+
+      {/* Right Main Content Column */}
+      <div className="flex-1 flex flex-col min-w-0 overflow-y-auto">
+        <Header />
+        <MainContent />
+      </div>
+
+      {/* Mobile Drawer & Bottom Navigation */}
+      <MobileNav />
+    </div>
+  );
+}
+
 export default function Home() {
   return (
     <ToastProvider>
       <AppProvider>
-        <Suspense fallback={<div className="min-h-screen bg-[#070b14] flex items-center justify-center text-slate-400 text-sm">Loading SkillBridge...</div>}>
-          <div className="flex min-h-screen bg-[#070b14] bg-gradient-navy text-slate-100">
-            {/* Desktop Left Sidebar */}
-            <Sidebar />
-
-            {/* Right Main Content Column */}
-            <div className="flex-1 flex flex-col min-w-0 overflow-y-auto">
-              <Header />
-              <MainContent />
-            </div>
-
-            {/* Mobile Drawer & Bottom Navigation */}
-            <MobileNav />
-          </div>
+        <Suspense fallback={<div className="min-h-screen bg-[#070b14] flex items-center justify-center text-slate-400 text-sm font-body">Loading SkillBridge...</div>}>
+          <AppShell />
         </Suspense>
       </AppProvider>
     </ToastProvider>
